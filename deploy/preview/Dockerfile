@@ -23,7 +23,7 @@ ENV TZ=Asia/Shanghai
 ENV SPRING_PROFILES_ACTIVE=preview
 
 # 暴露端口只是“说明”，真正对外开放靠 docker run -p 或 compose ports
-EXPOSE 8083
+EXPOSE 8082
 
 # 用 exec 形式启动，避免 shell 转发信号出问题（方便优雅停机）
 ENTRYPOINT ["java","-jar","/app/app.jar"]
