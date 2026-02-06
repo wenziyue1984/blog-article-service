@@ -1,0 +1,20 @@
+package com.wenziyue.blog.article.dal.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wenziyue.blog.article.dal.dto.ArticlePageDTO;
+import com.wenziyue.blog.article.dal.entity.ArticleEntity;
+import org.apache.ibatis.annotations.Param;
+
+import java.time.LocalDateTime;
+
+/**
+ * @author wenziyue
+ */
+public interface ArticleMapper extends BaseMapper<ArticleEntity>{
+
+    IPage<ArticleEntity> page(Page<?> page, @Param("dto") ArticlePageDTO dto);
+
+    IPage<ArticlePageDTO> feed(Page<Object> pageParam, @Param("lastTime") LocalDateTime lastTime, @Param("userId") Long id);
+}

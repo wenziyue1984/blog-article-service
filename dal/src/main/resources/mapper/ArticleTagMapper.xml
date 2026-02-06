@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenziyue.blog.article.dal.mapper.ArticleTagMapper">
+
+    <select id="getEnabledTags" resultType="com.wenziyue.blog.article.dal.dto.TagDTO">
+        select t1.id as id, t1.name as name, t1.status as status
+        from tb_wzy_blog_article_tag t0
+                 left join tb_wzy_blog_tag t1 on t0.tag_id = t1.id
+        where t1.status = 0
+          and t0.article_id = #{articleId}
+    </select>
+
+</mapper>
